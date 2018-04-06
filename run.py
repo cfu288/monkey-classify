@@ -16,5 +16,9 @@ def readClasses(fileName):
     return retDict
 
 if __name__ == "__main__":
+    '''
+    Following link covers how to train and add one last layer to Inceptionnet-V3 (a spin off of GoogleNet). Thinking about starting here and experimenting with other architectures later.
+    https://medium.com/@linjunghsuan/create-a-simple-image-classifier-using-tensorflow-a7061635984a
+    '''
     classDict = readClasses("monkey_labels.txt")
     for i,j in classDict.items(): print("{} {} ".format(i, j))

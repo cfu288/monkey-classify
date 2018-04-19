@@ -19,7 +19,7 @@ X_train = X_train.reshape(X_train.shape[0], 1, 28, 28)
 X_test = X_test.reshape(X_test.shape[0], 1, 28, 28)
 X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
-X_train /= 255
+X_train /= 255 
 X_test /= 255
  
 # 6. Preprocess class labels

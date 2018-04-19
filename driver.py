@@ -88,7 +88,7 @@ def main():
     test_img = cv2.imread(TEST_DIR + 'n0/n000.jpg')
     test_img = cv2.resize(test_img, (100, 100))
     test_img = np.array(test_img)
-    test_img = test_img.resize(test_img[0].shape, 3, 100, 100)
+    test_img = test_img.resize(test_img.shape[0], 3, 100, 100)
     prediction = model.predict(test_img, verbose=1)
     print prediction
 

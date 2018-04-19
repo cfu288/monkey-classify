@@ -50,3 +50,5 @@ model.compile(loss='categorical_crossentropy',
  
 # 10. Evaluate model on test data
 #score = model.evaluate(X_test, Y_test, verbose=0)
+
+print("DONE")

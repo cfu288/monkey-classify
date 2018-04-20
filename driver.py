@@ -6,10 +6,20 @@ import pandas as pd
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from keras.utils import np_utils
+from numpy.random import RandomState
 np.random.seed(123)  # for reproducibility
+import sys
+import random
 
 TRAIN_DIR = './training/'
 TEST_DIR = './validation/'
+
+def shuffle_data(arr1, arr2):
+    seed = random.randint(0, 1000)
+    ran = RandomState(seed)
+    ran.shuffle(arr1)
+    ran = RandomState(seed)
+    ran.shuffle(arr2)
 
 def getArgs():
     p = argparse.ArgumentParser(description='Experiement with CNN for fine tuned Monkey Classificaton')
@@ -65,6 +75,10 @@ def main():
     TRAIN_CLS = np_utils.to_categorical(TRAIN_CLS, 10)
     TEST_CLS = np_utils.to_categorical(TEST_CLS, 10)
 
+    # Shuffle the data
+    shuffle_data(TRAIN_IMG, TRAIN_CLS)
+    shuffle_data(TEST_IMG, TEST_CLS)
+
     # Construct the model
     model = Sequential()
 
@@ -84,7 +98,8 @@ def main():
 
     # Train the model on the training data
     print("TRAINING FOR {} EPOCHS".format(EPOCHS)) 
-    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=EPOCHS, verbose=1)
+    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=EPOCHS, verbose=1, validation_split=0.2, shuffle=True)
+
 
     # Save the model
     print("SAVE MODEL")

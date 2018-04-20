@@ -1,8 +1,7 @@
 # 3. Import libraries and modules
-import os
+import os, cv2, argparse
 import numpy as np
 import pandas as pd
-import cv2
 
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
@@ -12,7 +11,15 @@ np.random.seed(123)  # for reproducibility
 TRAIN_DIR = './training/'
 TEST_DIR = './validation/'
 
+def getArgs():
+    p = argparse.ArgumentParser(description='Experiement with CNN for fine tuned Monkey Classificaton')
+    p.add_argument('epochs',nargs='?',default=1,help='(OPTIONAL) Number of epochs to train for, defaults to 1')
+    return p.parse_args()
+
 def main():
+    # Get CLA
+    args = getArgs()
+    EPOCHS = int(args.epochs)
     TRAIN_IMG, TRAIN_CLS, TEST_IMG, TEST_CLS = ([] for i in range(4))
     COLS = ['Label', 'Latin Name', 'Common Name', 'Train Images', 'Validation Images']
     LABELS = pd.read_csv('./monkey_labels.txt', names=COLS, skiprows=1)
@@ -20,6 +27,7 @@ def main():
 
     # read in all images
     # resizing the images to 100x100 to make training faster
+    print("READING IN AND FORMATTING IMAGES")
     for x in range(0, len(LABELS)):
         train_dir = TRAIN_DIR + LABELS.loc[x,'Label'].strip() + '/'
         test_dir = TEST_DIR + LABELS.loc[x,'Label'].strip() + '/'
@@ -70,12 +78,15 @@ def main():
     model.add(Dense(10, activation='softmax'))
 
     # Compile model
+    print("COMPILING MODEL")
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # Train the model on the training data
-    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=50, verbose=1)
+    print("TRAINING FOR {} EPOCHS".format(EPOCHS)) 
+    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=EPOCHS, verbose=1)
 
     # Save the model
+    print("SAVE MODEL")
     model.save('test_model.h5')
     print(history.history.keys())
 

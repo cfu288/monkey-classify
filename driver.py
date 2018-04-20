@@ -79,6 +79,7 @@ def main():
 
     # Compile model
     print("COMPILING MODEL")
+    # Adam - Modified Gradient Decent - learning rate changes as it nears
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # Train the model on the training data

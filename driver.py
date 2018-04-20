@@ -4,26 +4,24 @@ import numpy as np
 import pandas as pd
 import cv2
 
-
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from keras.models import Sequential, load_model
+from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from keras.utils import np_utils
-from keras.models import load_model
 from keras import backend as K
 K.set_image_dim_ordering('th') 
 np.random.seed(123)  # for reproducibility
 
+TRAIN_DIR = './training/'
+TEST_DIR = './validation/'
 
 def main():
     TRAIN_IMG, TRAIN_CLS, TEST_IMG, TEST_CLS = ([] for i in range(4))
     COLS = ['Label', 'Latin Name', 'Common Name', 'Train Images', 'Validation Images']
-    LABELS = pd.read_csv('./10-monkey-species/monkey_labels.txt', names=COLS, skiprows=1)
+    LABELS = pd.read_csv('./monkey_labels.txt', names=COLS, skiprows=1)
     CLASSES = [x for x in range(0, len(LABELS))]
-    TRAIN_DIR = './10-monkey-species/training/'
-    TEST_DIR = './10-monkey-species/validation/'
 
     # read in all images
+    # resizing the images to 100x100 to make training faster
     for x in range(0, len(LABELS)):
         train_dir = TRAIN_DIR + LABELS.loc[x,'Label'].strip() + '/'
         test_dir = TEST_DIR + LABELS.loc[x,'Label'].strip() + '/'
@@ -47,7 +45,9 @@ def main():
     TRAIN_CLS = np.array(TRAIN_CLS)
     TEST_CLS = np.array(TEST_CLS)
 
-    # preprocess images
+    # Preprocess images
+    # Reshape them to theanos format (channels, hight, width)
+    # Convert to 0-255 to value in [0-1]
     TRAIN_IMG = TRAIN_IMG.reshape(TRAIN_IMG.shape[0], 3, 100, 100)
     TEST_IMG = TEST_IMG.reshape(TEST_IMG.shape[0], 3, 100, 100)
     TRAIN_IMG = TRAIN_IMG.astype('float32')
@@ -55,18 +55,17 @@ def main():
     TRAIN_IMG /= 255
     TEST_IMG /= 255
 
-    # reshape class labels
+    # Reshape class labels
     TRAIN_CLS = np_utils.to_categorical(TRAIN_CLS, 10)
     TEST_CLS = np_utils.to_categorical(TEST_CLS, 10)
 
-    # construct the model
+    # Construct the model
     model = Sequential()
 
     model.add(Conv2D(110, (3, 3), activation='relu', input_shape=(3, 100, 100)))
     model.add(Conv2D(110, (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
     model.add(Dropout(0.25))
-
     model.add(Flatten())
     model.add(Dense(128, activation='relu'))
     model.add(Dropout(0.5))
@@ -77,21 +76,35 @@ def main():
 
     # Train the model on the training data
     history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=1, verbose=1)
+
+    # Save the model
     model.save('test_model.h5')
-    print history
+    print(history.history.keys())
+
+    # TODO - Print a plot of loss and accuracy over epochs and learning rates
+
+
+    #model = load_model('test_model.h5')
 
     # Evaluate the model on the validation data
-    score = model.evaluate(TEST_IMG, TEST_CLS, verbose=1)
-    print score
+    loss, acc = model.evaluate(TEST_IMG, TEST_CLS, verbose=1)
+    print("Loss: ", loss, " Accuracy: ", acc)
 
-    # Predict an image
-    test_img = cv2.imread(TEST_DIR + 'n0/n000.jpg')
-    test_img = cv2.resize(test_img, (100, 100))
-    test_img = np.array(test_img)
-    test_img = test_img.resize(test_img.shape[0], 3, 100, 100)
-    prediction = model.predict(test_img, verbose=1)
-    print prediction
-
+    # Predict images
+    # TODO - Print mispredicted images, the label it predicted, and the correct label
+    '''
+    for i in range(len(TEST_IMG)):
+        img = TEST_IMG[i]
+        cls = TEST_CLS[i]
+        img = np.array([img])
+        prediction = model.predict(img, verbose=1, steps=1)
+        print
+        print "Class: ", cls
+        print "Prediction: ", prediction[0]
+        max_index = np.argmax(prediction[0])
+        print "Predicted Class index: ", max_index
+        print "Prediction Correct: ", True if cls[max_index] == 1. else False
+    '''
         
 
 main()

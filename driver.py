@@ -7,8 +7,6 @@ import cv2
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 from keras.utils import np_utils
-from keras import backend as K
-K.set_image_dim_ordering('th') 
 np.random.seed(123)  # for reproducibility
 
 TRAIN_DIR = './training/'
@@ -48,8 +46,8 @@ def main():
     # Preprocess images
     # Reshape them to theanos format (channels, hight, width)
     # Convert to 0-255 to value in [0-1]
-    TRAIN_IMG = TRAIN_IMG.reshape(TRAIN_IMG.shape[0], 3, 100, 100)
-    TEST_IMG = TEST_IMG.reshape(TEST_IMG.shape[0], 3, 100, 100)
+    # TRAIN_IMG = TRAIN_IMG.reshape(TRAIN_IMG.shape[0], 3, 100, 100)
+    # TEST_IMG = TEST_IMG.reshape(TEST_IMG.shape[0], 3, 100, 100)
     TRAIN_IMG = TRAIN_IMG.astype('float32')
     TEST_IMG = TEST_IMG.astype('float32')
     TRAIN_IMG /= 255
@@ -62,7 +60,7 @@ def main():
     # Construct the model
     model = Sequential()
 
-    model.add(Conv2D(110, (3, 3), activation='relu', input_shape=(3, 100, 100)))
+    model.add(Conv2D(110, (3, 3), activation='relu', input_shape=(100, 100, 3)))
     model.add(Conv2D(110, (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
     model.add(Dropout(0.25))
@@ -75,7 +73,7 @@ def main():
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     # Train the model on the training data
-    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=1, verbose=1)
+    history = model.fit(TRAIN_IMG, TRAIN_CLS, batch_size=32, epochs=50, verbose=1)
 
     # Save the model
     model.save('test_model.h5')

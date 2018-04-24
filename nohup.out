@@ -1,0 +1,255 @@
+[I 14:03:27.407 NotebookApp] Writing notebook server cookie secret to /run/user/1002/jupyter/notebook_cookie_secret
+[W 14:03:27.866 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 14:03:27.876 NotebookApp] Serving notebooks from local directory: /home/cfu288/monkey-classify
+[I 14:03:27.877 NotebookApp] 0 active kernels
+[I 14:03:27.877 NotebookApp] The Jupyter Notebook is running at:
+[I 14:03:27.877 NotebookApp] http://[all ip addresses on your system]:7000/
+[I 14:03:27.877 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 14:03:34.753 NotebookApp] 302 GET /terminals/1 (149.125.107.254) 1.88ms
+[I 14:03:51.252 NotebookApp] 302 POST /login?next=%2Fterminals%2F1 (149.125.107.254) 1.33ms
+[I 14:03:53.175 NotebookApp] New terminal with specified name: 1
+[I 14:04:48.718 NotebookApp] Saving file at /results_dual_cnn_with_gen.txt
+[W 14:06:14.072 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[W 14:06:14.220 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424140327 (149.125.107.254) 15.13ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[E 14:06:15.702 NotebookApp] Uncaught exception POST /api/sessions (149.125.107.254)
+    HTTPServerRequest(protocol='http', host='35.190.149.215:7000', method='POST', uri='/api/sessions', version='HTTP/1.1', remote_ip='149.125.107.254')
+    Traceback (most recent call last):
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/web.py", line 1543, in _execute
+        result = yield result
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 73, in post
+        type=mtype))
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 79, in create_session
+        kernel_id = yield self.start_kernel_for_session(session_id, path, name, type, kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 92, in start_kernel_for_session
+        self.kernel_manager.start_kernel(path=kernel_path, kernel_name=kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 315, in wrapper
+        yielded = next(result)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 148, in start_kernel
+        super(MappingKernelManager, self).start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 110, in start_kernel
+        km.start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/manager.py", line 240, in start_kernel
+        self.write_connection_file()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 472, in write_connection_file
+        kernel_name=self.kernel_name
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 137, in write_connection_file
+        with open(fname, 'w') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/run/user/1002/jupyter/kernel-7042653c-c0ea-4f9a-a93a-676dd84c110a.json'
+[W 14:06:15.802 NotebookApp] Unhandled error
+[E 14:06:15.803 NotebookApp] {
+      "Host": "35.190.149.215:7000",
+      "Connection": "keep-alive",
+      "Content-Length": "118",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://35.190.149.215:7000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/65.0.3325.181 Chrome/65.0.3325.181 Safari/537.36",
+      "Content-Type": "application/json",
+      "Dnt": "1",
+      "Referer": "http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "_xsrf=2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112; username-35-190-149-215-7000=\"2|1:0|10:1524578631|28:username-35-190-149-215-7000|44:MzQ1NWY5NGMzNTQ2NGQ3ZjhkZGIyYjBiNGIxY2VhMGE=|2ec29e9cdb30c3ab197bbbb7c8dc01d1781bc3f4d606f5e81abe7b58b0ceeb1f\""
+    }
+[E 14:06:15.804 NotebookApp] 500 POST /api/sessions (149.125.107.254) 122.30ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[I 14:08:16.183 NotebookApp] Saving file at /ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[W 14:08:16.184 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[I 14:10:16.710 NotebookApp] Saving file at /ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[W 14:10:16.711 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[I 14:10:46.312 NotebookApp] Saving file at /ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[W 14:10:46.312 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[W 14:11:48.532 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[E 14:11:50.097 NotebookApp] Uncaught exception POST /api/sessions (149.125.107.254)
+    HTTPServerRequest(protocol='http', host='35.190.149.215:7000', method='POST', uri='/api/sessions', version='HTTP/1.1', remote_ip='149.125.107.254')
+    Traceback (most recent call last):
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/web.py", line 1543, in _execute
+        result = yield result
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 73, in post
+        type=mtype))
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 79, in create_session
+        kernel_id = yield self.start_kernel_for_session(session_id, path, name, type, kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 92, in start_kernel_for_session
+        self.kernel_manager.start_kernel(path=kernel_path, kernel_name=kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 315, in wrapper
+        yielded = next(result)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 148, in start_kernel
+        super(MappingKernelManager, self).start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 110, in start_kernel
+        km.start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/manager.py", line 240, in start_kernel
+        self.write_connection_file()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 472, in write_connection_file
+        kernel_name=self.kernel_name
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 137, in write_connection_file
+        with open(fname, 'w') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/run/user/1002/jupyter/kernel-c60bd0f0-69d7-4984-9f19-e69fd0adb640.json'
+[W 14:11:50.098 NotebookApp] Unhandled error
+[E 14:11:50.099 NotebookApp] {
+      "Host": "35.190.149.215:7000",
+      "Connection": "keep-alive",
+      "Content-Length": "118",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://35.190.149.215:7000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/65.0.3325.181 Chrome/65.0.3325.181 Safari/537.36",
+      "Content-Type": "application/json",
+      "Dnt": "1",
+      "Referer": "http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "_xsrf=2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112; username-35-190-149-215-7000=\"2|1:0|10:1524578631|28:username-35-190-149-215-7000|44:MzQ1NWY5NGMzNTQ2NGQ3ZjhkZGIyYjBiNGIxY2VhMGE=|2ec29e9cdb30c3ab197bbbb7c8dc01d1781bc3f4d606f5e81abe7b58b0ceeb1f\""
+    }
+[E 14:11:50.099 NotebookApp] 500 POST /api/sessions (149.125.107.254) 5.20ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[W 14:11:50.180 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424140327 (149.125.107.254) 2.46ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[I 14:16:12.508 NotebookApp] 302 GET /notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb (149.125.107.254) 1.17ms
+[I 14:17:19.382 NotebookApp] 302 POST /login?next=%2Fnotebooks%2FModelNotebook-DualWithDropoutCNN-CF.ipynb (149.125.107.254) 1.33ms
+[W 14:17:21.438 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[W 14:17:21.534 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424140327 (149.125.107.254) 2.89ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[E 14:17:22.991 NotebookApp] Uncaught exception POST /api/sessions (149.125.107.254)
+    HTTPServerRequest(protocol='http', host='35.190.149.215:7000', method='POST', uri='/api/sessions', version='HTTP/1.1', remote_ip='149.125.107.254')
+    Traceback (most recent call last):
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/web.py", line 1543, in _execute
+        result = yield result
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 73, in post
+        type=mtype))
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 79, in create_session
+        kernel_id = yield self.start_kernel_for_session(session_id, path, name, type, kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 92, in start_kernel_for_session
+        self.kernel_manager.start_kernel(path=kernel_path, kernel_name=kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 315, in wrapper
+        yielded = next(result)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 148, in start_kernel
+        super(MappingKernelManager, self).start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 110, in start_kernel
+        km.start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/manager.py", line 240, in start_kernel
+        self.write_connection_file()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 472, in write_connection_file
+        kernel_name=self.kernel_name
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 137, in write_connection_file
+        with open(fname, 'w') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/run/user/1002/jupyter/kernel-88de2aa1-4ea2-4194-a34b-b222d225989a.json'
+[W 14:17:22.992 NotebookApp] Unhandled error
+[E 14:17:22.993 NotebookApp] {
+      "Host": "35.190.149.215:7000",
+      "Connection": "keep-alive",
+      "Content-Length": "118",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://35.190.149.215:7000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|1329332d|9d1d39f67f0d4df344a9cc961d3aebc5|1524579372",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/65.0.3325.181 Chrome/65.0.3325.181 Safari/537.36",
+      "Content-Type": "application/json",
+      "Dnt": "1",
+      "Referer": "http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "_xsrf=2|1329332d|9d1d39f67f0d4df344a9cc961d3aebc5|1524579372; username-35-190-149-215-7000=\"2|1:0|10:1524579439|28:username-35-190-149-215-7000|44:MjNiYTEwMzZkNDcxNDUzMmJjODQzMDNhYmE3ZDkwYzI=|1cb5fa9dbc412f39769778dcc7931efd458bb6fd6ece1dd4e54a24a18345f6b0\""
+    }
+[E 14:17:22.993 NotebookApp] 500 POST /api/sessions (149.125.107.254) 4.94ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[W 14:21:28.970 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[W 14:21:29.057 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424140327 (149.125.107.254) 3.04ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[E 14:21:30.551 NotebookApp] Uncaught exception POST /api/sessions (149.125.107.254)
+    HTTPServerRequest(protocol='http', host='35.190.149.215:7000', method='POST', uri='/api/sessions', version='HTTP/1.1', remote_ip='149.125.107.254')
+    Traceback (most recent call last):
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/web.py", line 1543, in _execute
+        result = yield result
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 73, in post
+        type=mtype))
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 79, in create_session
+        kernel_id = yield self.start_kernel_for_session(session_id, path, name, type, kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 92, in start_kernel_for_session
+        self.kernel_manager.start_kernel(path=kernel_path, kernel_name=kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 315, in wrapper
+        yielded = next(result)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 148, in start_kernel
+        super(MappingKernelManager, self).start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 110, in start_kernel
+        km.start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/manager.py", line 240, in start_kernel
+        self.write_connection_file()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 472, in write_connection_file
+        kernel_name=self.kernel_name
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 137, in write_connection_file
+        with open(fname, 'w') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/run/user/1002/jupyter/kernel-d610611d-58b6-41aa-ada2-b621ed45ee9b.json'
+[W 14:21:30.552 NotebookApp] Unhandled error
+[E 14:21:30.552 NotebookApp] {
+      "Host": "35.190.149.215:7000",
+      "Connection": "keep-alive",
+      "Content-Length": "118",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://35.190.149.215:7000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/65.0.3325.181 Chrome/65.0.3325.181 Safari/537.36",
+      "Content-Type": "application/json",
+      "Dnt": "1",
+      "Referer": "http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "_xsrf=2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112; username-35-190-149-215-7000=\"2|1:0|10:1524578631|28:username-35-190-149-215-7000|44:MzQ1NWY5NGMzNTQ2NGQ3ZjhkZGIyYjBiNGIxY2VhMGE=|2ec29e9cdb30c3ab197bbbb7c8dc01d1781bc3f4d606f5e81abe7b58b0ceeb1f\""
+    }
+[E 14:21:30.553 NotebookApp] 500 POST /api/sessions (149.125.107.254) 6.23ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[C 14:24:45.626 NotebookApp] received signal 15, stopping
+[I 14:24:45.626 NotebookApp] EOF on FD 14; stopping reading
+[I 14:24:45.727 NotebookApp] Terminal 1 closed
+[I 14:24:45.728 NotebookApp] Shutting down 0 kernels

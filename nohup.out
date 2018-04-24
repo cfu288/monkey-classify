@@ -253,3 +253,101 @@
 [I 14:24:45.626 NotebookApp] EOF on FD 14; stopping reading
 [I 14:24:45.727 NotebookApp] Terminal 1 closed
 [I 14:24:45.728 NotebookApp] Shutting down 0 kernels
+[I 15:16:11.736 NotebookApp] Writing notebook server cookie secret to /run/user/1002/jupyter/notebook_cookie_secret
+[W 15:16:11.963 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 15:16:11.972 NotebookApp] Serving notebooks from local directory: /home/cfu288/monkey-classify
+[I 15:16:11.972 NotebookApp] 0 active kernels
+[I 15:16:11.972 NotebookApp] The Jupyter Notebook is running at:
+[I 15:16:11.972 NotebookApp] http://[all ip addresses on your system]:7000/
+[I 15:16:11.972 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 15:16:12.637 NotebookApp] 302 GET /tree? (149.125.107.254) 1.40ms
+[I 15:16:26.025 NotebookApp] 302 POST /login?next=%2Ftree%3F (149.125.107.254) 1.81ms
+[W 15:16:32.782 NotebookApp] Notebook ModelNotebook-DualWithDropoutCNN-CF.ipynb is not trusted
+[I 15:16:34.511 NotebookApp] Kernel started: 377b6350-9360-4a0c-aece-430309f8e09a
+[W 15:16:34.668 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424151611 (149.125.107.254) 11.24ms referer=http://35.190.149.215:7000/notebooks/ModelNotebook-DualWithDropoutCNN-CF.ipynb
+[I 15:16:35.076 NotebookApp] Adapting to protocol v5.1 for kernel 377b6350-9360-4a0c-aece-430309f8e09a
+[W 15:16:42.836 NotebookApp] 404 GET /api/kernels/c07a3ac3-5885-496f-ac07-c5cef0c868d6/channels?session_id=c92ae89f188c474d833cfeb1d23775a3 (149.125.107.254): Kernel does not exist: c07a3ac3-5885-496f-ac07-c5cef0c868d6
+[W 15:16:42.837 NotebookApp] 404 GET /api/kernels/c07a3ac3-5885-496f-ac07-c5cef0c868d6/channels?session_id=c92ae89f188c474d833cfeb1d23775a3 (149.125.107.254) 3.06ms referer=None
+[I 15:16:46.083 NotebookApp] Kernel started: b32ba0a5-3db1-4a4b-b334-bc5d85576b24
+[W 15:16:46.203 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424151611 (149.125.107.254) 1.96ms referer=http://35.190.149.215:7000/notebooks/Notes.ipynb
+[I 15:16:46.693 NotebookApp] Adapting to protocol v5.1 for kernel b32ba0a5-3db1-4a4b-b334-bc5d85576b24
+[W 15:17:47.608 NotebookApp] Replacing stale connection: c07a3ac3-5885-496f-ac07-c5cef0c868d6:c92ae89f188c474d833cfeb1d23775a3
+[I 15:18:46.223 NotebookApp] Saving file at /Notes.ipynb
+[I 15:20:46.255 NotebookApp] Saving file at /Notes.ipynb
+[I 15:21:57.989 NotebookApp] Saving file at /Notes.ipynb
+[I 15:22:46.224 NotebookApp] Saving file at /Notes.ipynb
+[W 15:26:46.696 NotebookApp] WebSocket ping timeout after 119969 ms.
+[I 15:26:51.709 NotebookApp] Starting buffering for b32ba0a5-3db1-4a4b-b334-bc5d85576b24:507d5d8f1e2d4d67839ae46377435c19
+[W 15:27:05.081 NotebookApp] WebSocket ping timeout after 119921 ms.
+[I 15:27:10.095 NotebookApp] Starting buffering for 377b6350-9360-4a0c-aece-430309f8e09a:e99ca7e993624d4a8ab7847a4c7ba8cd
+[I 15:32:00.947 NotebookApp] Adapting to protocol v5.1 for kernel b32ba0a5-3db1-4a4b-b334-bc5d85576b24
+[I 15:32:00.948 NotebookApp] Restoring connection for b32ba0a5-3db1-4a4b-b334-bc5d85576b24:507d5d8f1e2d4d67839ae46377435c19
+[I 15:32:20.309 NotebookApp] Adapting to protocol v5.1 for kernel 377b6350-9360-4a0c-aece-430309f8e09a
+[I 15:32:20.310 NotebookApp] Restoring connection for 377b6350-9360-4a0c-aece-430309f8e09a:e99ca7e993624d4a8ab7847a4c7ba8cd
+[I 15:33:13.946 NotebookApp] Saving file at /Notes.ipynb
+[I 15:33:19.991 NotebookApp] Starting buffering for 377b6350-9360-4a0c-aece-430309f8e09a:e99ca7e993624d4a8ab7847a4c7ba8cd
+[E 15:33:32.144 NotebookApp] Uncaught exception POST /api/sessions (149.125.107.254)
+    HTTPServerRequest(protocol='http', host='35.190.149.215:7000', method='POST', uri='/api/sessions', version='HTTP/1.1', remote_ip='149.125.107.254')
+    Traceback (most recent call last):
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/web.py", line 1543, in _execute
+        result = yield result
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/handlers.py", line 73, in post
+        type=mtype))
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 79, in create_session
+        kernel_id = yield self.start_kernel_for_session(session_id, path, name, type, kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1107, in run
+        yielded = self.gen.throw(*exc_info)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/sessions/sessionmanager.py", line 92, in start_kernel_for_session
+        self.kernel_manager.start_kernel(path=kernel_path, kernel_name=kernel_name)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 1099, in run
+        value = future.result()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/tornado/gen.py", line 315, in wrapper
+        yielded = next(result)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/notebook/services/kernels/kernelmanager.py", line 148, in start_kernel
+        super(MappingKernelManager, self).start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/multikernelmanager.py", line 110, in start_kernel
+        km.start_kernel(**kwargs)
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/manager.py", line 240, in start_kernel
+        self.write_connection_file()
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 472, in write_connection_file
+        kernel_name=self.kernel_name
+      File "/home/cfu288/.local/lib/python3.6/site-packages/jupyter_client/connect.py", line 137, in write_connection_file
+        with open(fname, 'w') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/run/user/1002/jupyter/kernel-e994f94a-0eb0-4b0c-92c1-1d0b3f44cf1c.json'
+[W 15:33:32.305 NotebookApp] Unhandled error
+[E 15:33:32.306 NotebookApp] {
+      "Host": "35.190.149.215:7000",
+      "Connection": "keep-alive",
+      "Content-Length": "101",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Origin": "http://35.190.149.215:7000",
+      "X-Requested-With": "XMLHttpRequest",
+      "X-Xsrftoken": "2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/65.0.3325.181 Chrome/65.0.3325.181 Safari/537.36",
+      "Content-Type": "application/json",
+      "Dnt": "1",
+      "Referer": "http://35.190.149.215:7000/notebooks/SimpleResultGraphs.ipynb",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Cookie": "_xsrf=2|b4a6f8cc|78e96f0ecc4ebad4774577bbbaaa1642|1523129112; username-35-190-149-215-7000=\"2|1:0|10:1524582986|28:username-35-190-149-215-7000|44:OThmYjZhMzhiNGI3NGZlMDliZjA4ZTY3N2I2OGUxZTA=|60597a70de5cbc91dc5d829f919aea63dff394577fec49f640019950ed47d21d\""
+    }
+[E 15:33:32.306 NotebookApp] 500 POST /api/sessions (149.125.107.254) 165.37ms referer=http://35.190.149.215:7000/notebooks/SimpleResultGraphs.ipynb
+[W 15:33:32.308 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20180424151611 (149.125.107.254) 1.45ms referer=http://35.190.149.215:7000/notebooks/SimpleResultGraphs.ipynb
+[I 15:35:32.379 NotebookApp] Saving file at /SimpleResultGraphs.ipynb
+[I 15:37:32.308 NotebookApp] Saving file at /SimpleResultGraphs.ipynb
+[I 15:39:02.988 NotebookApp] Saving file at /SimpleResultGraphs.ipynb
+[I 15:39:17.370 NotebookApp] Saving file at /Notes.ipynb
+[C 15:39:28.689 NotebookApp] received signal 15, stopping
+[I 15:39:28.690 NotebookApp] Shutting down 2 kernels
+[I 15:39:28.791 NotebookApp] Kernel shutdown: 377b6350-9360-4a0c-aece-430309f8e09a
+[I 15:39:28.792 NotebookApp] Kernel shutdown: b32ba0a5-3db1-4a4b-b334-bc5d85576b24

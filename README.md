@@ -1,12 +1,7 @@
 
 # Notes
 
-
-    
-    
-    
-
-
+Most updated results are on our [presentation.](https://docs.google.com/presentation/d/1wpa-qiOv4gPXT5-Y_TWYu1qQBETypmVXQh8YPr2Sdv4/edit?usp=sharing)
 
 ### Problem
 
@@ -92,7 +87,6 @@ simple_model.add(Dense(10, activation='softmax'))
 model.summary()
 ```
 
-![image.png](attachment:image.png)
 Conv2D - Our convolutional layer  
 &nbsp;&nbsp;&nbsp;&nbsp;num_filters: The number of convolutional neurons. Each neuron performs a different convolution on the input  
 &nbsp;&nbsp;&nbsp;&nbsp;test_kernal (2,2): The size of each filter i.e. how many pixels to use  
@@ -134,27 +128,21 @@ simple_model.fit -  Run the model on our data
 &nbsp;&nbsp;&nbsp;&nbsp;validation_split: Set aside data for validation  
 &nbsp;&nbsp;&nbsp;&nbsp;shuffle: Shuffle the data between epochs  
 
-#### Shitty Results
+### Initial Results
 
-Different kernel sizes, image dimensions
-
-graphs, etc.
+Most updated results are on our [presentation](https://docs.google.com/presentation/d/1wpa-qiOv4gPXT5-Y_TWYu1qQBETypmVXQh8YPr2Sdv4/edit?usp=sharing)
 
 #### NOTE: Images below are outdated, updated images in images folder
 
-![EffectofFilterSize.png](attachment:EffectofFilterSize.png)
-![EffectofNumberofFilters.png](attachment:EffectofNumberofFilters.png)
-![EffectofKernelSizesatInputSizes.png](attachment:EffectofKernelSizesatInputSizes.png)
+![EffectofFilterSize.png](https://raw.githubusercontent.com/cfu288/monkey-classify/master/images/EffectofFilterSize.png)
+![EffectofNumberofFilters.png](https://raw.githubusercontent.com/cfu288/monkey-classify/master/images/EffectofNumberofFilters.png)
+![EffectofKernelSizesatInputSizes.png](https://raw.githubusercontent.com/cfu288/monkey-classify/master/images/EffectofKernelSizesatInputSizes.png)
+
 ### Overfitting Data, Accuracy Cap in 60-70%
-![trainacc.png](attachment:trainacc.png)
-![trainerr.png](attachment:trainerr.png)
-
-
-### Getting Better Accuracy(?)
 * We were overfitting every model we tried very quickly => Not enough data  
 * Model is too simple, cannot handle such fine-grain classification.  
 
-#### Proposed Solution: 
+#### Proposed Solution 1 - Increase size of dataset: 
 Use ImageDataGenerator to give us more data + use better suited model
 
     TRAIN_DATAGEN = ImageDataGenerator(rescale=1./255,
@@ -173,8 +161,7 @@ Use ImageDataGenerator to give us more data + use better suited model
 * width_shift_range, height_shift_range: Randomly shift pixel range  
 * fill_mode: How to fill empty pixels when shifting images 
 
-![monkeyImages.png](attachment:monkeyImages.png)
-#### More complex model:
+#### Proposed Solution 2 - More complex model:
 
     simple_model = Sequential()
     simple_model.add(Conv2D(num_filters, test_kernel, input_shape=input_shape))
@@ -187,7 +174,7 @@ Use ImageDataGenerator to give us more data + use better suited model
     simple_model.add(Flatten()) 
     simple_model.add(Dense(10, activation='softmax'))
 
-#### Didn't help
+### Secondary Results
 * Even with data generation, inc epoches, inc conv layers, dropout layers - still accuracy cap in same range
     
 #### Why?
@@ -195,12 +182,12 @@ Use ImageDataGenerator to give us more data + use better suited model
 * Quality of data is poor - show examples (multiple animals per image and stuff)
 * Model not generalized enough
     
-### Let's Change gears - How can we make the model more generalizable without more data?
-* Used a pretrained model, add new layers and train
+## Let's Change gears - How can we make the model more generalizable without more data?
+* Used a pretrained model, add new layers and train instead of training from scratch.
     
 #### The Xception Model
-
 ![image.png](attachment:image.png)
 
-#### Results
+#### Final Results
+* Finally got above 80% accuracy
 

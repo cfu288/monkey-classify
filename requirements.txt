@@ -9,7 +9,7 @@ boto==2.44.0
 certifi==2017.4.17
 chardet==3.0.4
 crcmod==1.7
-cryptography==1.9
+cryptography==3.2
 decorator==4.2.1
 enum34==1.1.6
 funcsigs==1.0.2
